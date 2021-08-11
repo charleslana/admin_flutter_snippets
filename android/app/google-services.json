@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "39148267107",
+    "project_id": "flutter-snippets-b5623",
+    "storage_bucket": "flutter-snippets-b5623.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39148267107:android:f6068cf9b2ebfb6a8efa56",
+        "android_client_info": {
+          "package_name": "com.charleslana.admin_flutter_snippets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39148267107-gi98lgu488rdd5qt97cqq1m0l9vbdoj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXMky3rXgSGjNnJT_NJy3MbB-UNNNqkPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39148267107-gi98lgu488rdd5qt97cqq1m0l9vbdoj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

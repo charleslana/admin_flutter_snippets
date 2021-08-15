@@ -1,16 +1,10 @@
-import 'package:admin_flutter_snippets/utils/utils.dart';
+import 'package:admin_flutter_snippets/src/utils/utils.dart';
 
 class NewsField {
   static const createdTime = 'createdTime';
 }
 
 class News {
-  String? id;
-  String title;
-  String description;
-  bool? isDisabled;
-  DateTime? createdTime;
-
   News({
     this.id,
     required this.title,
@@ -18,6 +12,12 @@ class News {
     this.isDisabled = false,
     this.createdTime,
   });
+
+  String? id;
+  String title;
+  String description;
+  bool? isDisabled;
+  DateTime? createdTime;
 
   static News fromJson(Map<String, dynamic> json) => News(
         id: json['id'],

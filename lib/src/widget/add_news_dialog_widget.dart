@@ -1,6 +1,6 @@
-import 'package:admin_flutter_snippets/model/news.dart';
-import 'package:admin_flutter_snippets/provider/news_provider.dart';
-import 'package:admin_flutter_snippets/widget/news_form_widget.dart';
+import 'package:admin_flutter_snippets/src/model/news.dart';
+import 'package:admin_flutter_snippets/src/provider/news_provider.dart';
+import 'package:admin_flutter_snippets/src/widget/news_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,12 +12,12 @@ class AddNewsDialogWidget extends StatefulWidget {
 }
 
 class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
-  final _formKey = GlobalKey<FormState>();
+  final _key = GlobalKey<FormState>();
   String title = '';
   String description = '';
 
   void addNews() {
-    final isValid = _formKey.currentState!.validate();
+    final isValid = _key.currentState!.validate();
 
     if (!isValid) {
       return;
@@ -30,8 +30,7 @@ class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
       createdTime: DateTime.now(),
     );
 
-    final provider = Provider.of<NewsProvider>(context, listen: false);
-    provider.addNews(news);
+    Provider.of<NewsProvider>(context, listen: false).addNews(news);
 
     Navigator.of(context).pop();
   }
@@ -39,12 +38,12 @@ class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
   @override
   Widget build(BuildContext context) => AlertDialog(
         content: Form(
-          key: _formKey,
+          key: _key,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Add News',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,

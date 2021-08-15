@@ -1,33 +1,32 @@
-import 'package:admin_flutter_snippets/model/news.dart';
-import 'package:admin_flutter_snippets/provider/news_provider.dart';
-import 'package:admin_flutter_snippets/widget/news_form_widget.dart';
+import 'package:admin_flutter_snippets/src/model/news.dart';
+import 'package:admin_flutter_snippets/src/provider/news_provider.dart';
+import 'package:admin_flutter_snippets/src/widget/news_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class EditNewsPage extends StatefulWidget {
-  final News news;
-
   const EditNewsPage({required this.news, Key? key}) : super(key: key);
+
+  final News news;
 
   @override
   _EditNewsPageState createState() => _EditNewsPageState();
 }
 
 class _EditNewsPageState extends State<EditNewsPage> {
-  final _formKey = GlobalKey<FormState>();
+  final _key = GlobalKey<FormState>();
 
   late String _title;
   late String _description;
 
   void _saveNews() {
-    final isValid = _formKey.currentState!.validate();
+    final isValid = _key.currentState!.validate();
 
     if (!isValid) {
       return;
     }
-    final provider = Provider.of<NewsProvider>(context, listen: false);
-
-    provider.updateNews(widget.news, _title, _description);
+    Provider.of<NewsProvider>(context, listen: false)
+        .updateNews(widget.news, _title, _description);
 
     Navigator.of(context).pop();
   }
@@ -44,14 +43,13 @@ class _EditNewsPageState extends State<EditNewsPage> {
   Widget build(BuildContext context) => SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Edit News'),
+            title: const Text('Edit News'),
             actions: [
               IconButton(
-                icon: Icon(Icons.delete),
+                icon: const Icon(Icons.delete),
                 onPressed: () {
-                  final provider =
-                      Provider.of<NewsProvider>(context, listen: false);
-                  provider.removeNews(widget.news);
+                  Provider.of<NewsProvider>(context, listen: false)
+                      .removeNews(widget.news);
 
                   Navigator.of(context).pop();
                 },
@@ -59,15 +57,15 @@ class _EditNewsPageState extends State<EditNewsPage> {
             ],
           ),
           body: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
-              key: _formKey,
+              key: _key,
               child: NewsFormWidget(
                 title: _title,
                 description: _description,
-                onChangedTitle: (title) => setState(() => this._title = title),
+                onChangedTitle: (title) => setState(() => _title = title),
                 onChangedDescription: (description) =>
-                    setState(() => this._description = description),
+                    setState(() => _description = description),
                 onSavedNews: _saveNews,
               ),
             ),

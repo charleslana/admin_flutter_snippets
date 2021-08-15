@@ -1,5 +1,5 @@
-import 'package:admin_flutter_snippets/api/firebase_api.dart';
-import 'package:admin_flutter_snippets/model/news.dart';
+import 'package:admin_flutter_snippets/src/api/firebase_api.dart';
+import 'package:admin_flutter_snippets/src/model/news.dart';
 import 'package:flutter/material.dart';
 
 class NewsProvider extends ChangeNotifier {
@@ -20,8 +20,9 @@ class NewsProvider extends ChangeNotifier {
   void addNews(News news) => FirebaseApi.createNews(news);
 
   void updateNews(News news, String title, String description) {
-    news.title = title;
-    news.description = description;
+    news
+      ..title = title
+      ..description = description;
 
     FirebaseApi.updateNews(news);
   }

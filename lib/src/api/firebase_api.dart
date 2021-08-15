@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:admin_flutter_snippets/model/news.dart';
-import 'package:admin_flutter_snippets/utils/utils.dart';
+import 'package:admin_flutter_snippets/src/model/news.dart';
+import 'package:admin_flutter_snippets/src/utils/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseApi {
-  static final _news = 'news';
+  static const _news = 'news';
 
   static Future<String> createNews(News news) async {
     final docNews = FirebaseFirestore.instance.collection(_news).doc();
@@ -23,13 +23,13 @@ class FirebaseApi {
       .transform(Utils.transformer(News.fromJson) as StreamTransformer<
           QuerySnapshot<Map<String, dynamic>>, List<News>>);
 
-  static Future updateNews(News news) async {
+  static Future<void> updateNews(News news) async {
     final docNews = FirebaseFirestore.instance.collection(_news).doc(news.id);
 
     await docNews.update(news.toJson());
   }
 
-  static Future deleteNews(News news) async {
+  static Future<void> deleteNews(News news) async {
     final docNews = FirebaseFirestore.instance.collection(_news).doc(news.id);
 
     await docNews.delete();

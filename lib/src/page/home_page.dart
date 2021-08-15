@@ -1,16 +1,16 @@
-import 'package:admin_flutter_snippets/api/firebase_api.dart';
-import 'package:admin_flutter_snippets/model/news.dart';
-import 'package:admin_flutter_snippets/provider/news_provider.dart';
-import 'package:admin_flutter_snippets/widget/add_news_dialog_widget.dart';
-import 'package:admin_flutter_snippets/widget/disabled_list_widget.dart';
-import 'package:admin_flutter_snippets/widget/news_list_widget.dart';
+import 'package:admin_flutter_snippets/src/api/firebase_api.dart';
+import 'package:admin_flutter_snippets/src/model/news.dart';
+import 'package:admin_flutter_snippets/src/provider/news_provider.dart';
+import 'package:admin_flutter_snippets/src/widget/add_news_dialog_widget.dart';
+import 'package:admin_flutter_snippets/src/widget/disabled_list_widget.dart';
+import 'package:admin_flutter_snippets/src/widget/news_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  final String title;
-
   const HomePage({required this.title, Key? key}) : super(key: key);
+
+  final String title;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -22,15 +22,18 @@ class _HomePageState extends State<HomePage> {
   Widget buildText(String text) => Center(
         child: Text(
           text,
-          style: TextStyle(fontSize: 24, color: Colors.white),
+          style: const TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+          ),
         ),
       );
 
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      NewsListWidget(),
-      DisabledListWidget(),
+      const NewsListWidget(),
+      const DisabledListWidget(),
     ];
 
     return SafeArea(
@@ -46,7 +49,7 @@ class _HomePageState extends State<HomePage> {
           onTap: (index) => setState(() {
             _selectedIndex = index;
           }),
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.fact_check_outlined),
               label: 'News',
@@ -62,15 +65,14 @@ class _HomePageState extends State<HomePage> {
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               default:
                 if (snapshot.hasError) {
                   return buildText('Something Went Wrong Try later');
                 } else {
                   final news = snapshot.data;
 
-                  final provider = Provider.of<NewsProvider>(context);
-                  provider.setNews(news);
+                  Provider.of<NewsProvider>(context).setNews(news);
 
                   return tabs[_selectedIndex];
                 }
@@ -84,10 +86,10 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.black,
           onPressed: () => showDialog(
             context: context,
-            builder: (context) => AddNewsDialogWidget(),
+            builder: (context) => const AddNewsDialogWidget(),
             barrierDismissible: false,
           ),
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ),
     );

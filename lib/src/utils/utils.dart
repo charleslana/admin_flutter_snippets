@@ -31,7 +31,7 @@ class Utils {
     );
   }
 
-  static StreamTransformer transformer<T>(
+  static StreamTransformer<dynamic, dynamic> transformer<T>(
           T Function(Map<String, dynamic> json) fromJson) =>
       StreamTransformer<QuerySnapshot<Map<String, dynamic>>,
           List<T>>.fromHandlers(

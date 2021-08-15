@@ -17,16 +17,18 @@ class NewsFormWidget extends StatelessWidget {
   final VoidCallback onSavedNews;
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            buildTitle(),
-            const SizedBox(height: 8),
-            buildDescription(),
-            const SizedBox(height: 16),
-            buildButton(),
-          ],
+  Widget build(BuildContext context) => Flexible(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              buildTitle(),
+              const SizedBox(height: 8),
+              buildDescription(),
+              const SizedBox(height: 16),
+              buildButton(),
+            ],
+          ),
         ),
       );
 

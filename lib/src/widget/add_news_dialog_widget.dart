@@ -51,11 +51,13 @@ class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
                 ),
               ),
               const SizedBox(height: 8),
-              NewsFormWidget(
-                onChangedTitle: (title) => setState(() => this.title = title),
-                onChangedDescription: (description) =>
-                    setState(() => this.description = description),
-                onSavedNews: addNews,
+              Flexible(
+                child: NewsFormWidget(
+                  onChangedTitle: (title) => setState(() => this.title = title),
+                  onChangedDescription: (description) =>
+                      setState(() => this.description = description),
+                  onSavedNews: addNews,
+                ),
               ),
             ],
           ),

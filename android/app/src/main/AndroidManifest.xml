@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.admin_flutter_snippets">
    <application
-        android:label="admin_flutter_snippets"
+        android:label="Admin News FS"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -46,7 +46,7 @@ class NewsFormWidget extends StatelessWidget {
       );
 
   Widget buildDescription() => TextFormField(
-        maxLines: 3,
+        maxLines: 5,
         initialValue: description,
         onChanged: onChangedDescription,
         validator: (description) {
@@ -64,9 +64,6 @@ class NewsFormWidget extends StatelessWidget {
   Widget buildButton() => SizedBox(
         width: double.infinity,
         child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.black),
-          ),
           onPressed: onSavedNews,
           child: const Text('Save'),
         ),

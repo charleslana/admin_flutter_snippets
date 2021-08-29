@@ -2,15 +2,14 @@ import 'package:admin_flutter_snippets/src/api/firebase_api.dart';
 import 'package:admin_flutter_snippets/src/models/news.dart';
 import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
 import 'package:admin_flutter_snippets/src/widgets/add_news_dialog_widget.dart';
+import 'package:admin_flutter_snippets/src/widgets/app_bar_widget.dart';
 import 'package:admin_flutter_snippets/src/widgets/disabled_list_widget.dart';
 import 'package:admin_flutter_snippets/src/widgets/news_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({required this.title, Key? key}) : super(key: key);
-
-  final String title;
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -18,16 +17,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-
-  Widget buildText(String text) => Center(
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 24,
-            color: Colors.white,
-          ),
-        ),
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +27,10 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
+        appBar: const AppBarWidget(
+          title: 'News',
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Theme.of(context).primaryColor,
-          unselectedItemColor: Colors.white.withOpacity(0.7),
-          selectedItemColor: Colors.white,
           currentIndex: _selectedIndex,
           onTap: (index) => setState(() {
             _selectedIndex = index;
@@ -68,11 +54,16 @@ class _HomePageState extends State<HomePage> {
                 return const Center(child: CircularProgressIndicator());
               default:
                 if (snapshot.hasError) {
-                  return buildText('Something Went Wrong Try later');
+                  return const Center(
+                    child: Text(
+                      'Something Went Wrong Try later',
+                      style: TextStyle(
+                        fontSize: 24,
+                      ),
+                    ),
+                  );
                 } else {
-                  final news = snapshot.data;
-
-                  Provider.of<NewsProvider>(context).setNews(news);
+                  Provider.of<NewsProvider>(context).setNews(snapshot.data);
 
                   return tabs[_selectedIndex];
                 }
@@ -80,15 +71,14 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         floatingActionButton: FloatingActionButton(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          backgroundColor: Colors.black,
           onPressed: () => showDialog(
             context: context,
             builder: (context) => const AddNewsDialogWidget(),
           ),
-          child: const Icon(Icons.add),
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
       ),
     );

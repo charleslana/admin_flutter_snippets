@@ -13,8 +13,8 @@ class AddNewsDialogWidget extends StatefulWidget {
 
 class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
   final _key = GlobalKey<FormState>();
-  String title = '';
-  String description = '';
+  String _title = '';
+  String _description = '';
 
   void addNews() {
     final isValid = _key.currentState!.validate();
@@ -25,8 +25,8 @@ class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
 
     final news = News(
       id: DateTime.now().toString(),
-      title: title,
-      description: description,
+      title: _title,
+      description: _description,
       createdTime: DateTime.now(),
     );
 
@@ -36,31 +36,33 @@ class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
   }
 
   @override
-  Widget build(BuildContext context) => AlertDialog(
-        content: Form(
-          key: _key,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Add News',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      content: Form(
+        key: _key,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Add News',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
               ),
-              const SizedBox(height: 8),
-              Flexible(
-                child: NewsFormWidget(
-                  onChangedTitle: (title) => setState(() => this.title = title),
-                  onChangedDescription: (description) =>
-                      setState(() => this.description = description),
-                  onSavedNews: addNews,
-                ),
+            ),
+            const SizedBox(height: 8),
+            Flexible(
+              child: NewsFormWidget(
+                onChangedTitle: (title) => setState(() => _title = title),
+                onChangedDescription: (description) =>
+                    setState(() => _description = description),
+                onSavedNews: addNews,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-      );
+      ),
+    );
+  }
 }

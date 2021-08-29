@@ -8,8 +8,7 @@ class NewsListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<NewsProvider>(context);
-    final news = provider.news;
+    final news = Provider.of<NewsProvider>(context).news;
 
     return news.isEmpty
         ? const Center(

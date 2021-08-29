@@ -8,8 +8,7 @@ class DisabledListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<NewsProvider>(context);
-    final news = provider.newsDisabled;
+    final news = Provider.of<NewsProvider>(context).newsDisabled;
 
     return news.isEmpty
         ? const Center(

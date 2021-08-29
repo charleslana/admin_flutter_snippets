@@ -10,5 +10,6 @@
     "pageSettingsDefaultLanguage": "System defined default language",
     "pageSettingsLanguageEnglish": "English",
     "pageSettingsLanguageSpanish": "Spanish",
-    "pageSettingsLanguagePortuguese": "Portuguese"
+    "pageSettingsLanguagePortuguese": "Portuguese",
+    "dateFormat": "MM/dd/yyyy"
 }

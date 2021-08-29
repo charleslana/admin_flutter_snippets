@@ -77,15 +77,15 @@ class ThemeProvider extends ChangeNotifier {
 
 final lighTheme = ThemeData(
   scaffoldBackgroundColor: Colors.white,
-  primaryColor: Colors.orangeAccent,
+  primaryColor: Colors.indigo,
   colorScheme: const ColorScheme.light().copyWith(
-    primary: Colors.orangeAccent,
+    primary: Colors.indigo,
   ),
   switchTheme: SwitchThemeData(
     thumbColor: MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.selected)) {
-          return Colors.orangeAccent;
+          return Colors.indigo;
         }
         return Colors.white.withAlpha(700);
       },
@@ -96,7 +96,7 @@ final lighTheme = ThemeData(
     fillColor: MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.selected)) {
-          return Colors.orangeAccent;
+          return Colors.indigo;
         }
         return Colors.grey;
       },
@@ -106,28 +106,40 @@ final lighTheme = ThemeData(
     fillColor: MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.selected)) {
-          return Colors.orangeAccent;
+          return Colors.indigo;
         }
         return Colors.grey;
       },
     ),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    selectedItemColor: Colors.orangeAccent,
+    selectedItemColor: Colors.indigo,
+  ),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor: Colors.indigo,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: TextButton.styleFrom(
+      backgroundColor: Colors.indigo,
+      primary: Colors.white,
+    ),
+  ),
+  snackBarTheme: const SnackBarThemeData(
+    actionTextColor: Colors.white,
   ),
 );
 
 final darkTheme = ThemeData(
   scaffoldBackgroundColor: Colors.grey.shade900,
-  primaryColor: Colors.orangeAccent,
+  primaryColor: Colors.indigo,
   colorScheme: const ColorScheme.dark().copyWith(
-    primary: Colors.orangeAccent,
+    primary: Colors.indigo,
   ),
   switchTheme: SwitchThemeData(
     thumbColor: MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.selected)) {
-          return Colors.orangeAccent;
+          return Colors.indigo;
         }
         return Colors.white.withAlpha(700);
       },
@@ -138,7 +150,7 @@ final darkTheme = ThemeData(
     fillColor: MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.selected)) {
-          return Colors.orangeAccent;
+          return Colors.indigo;
         }
         return Colors.grey;
       },
@@ -148,13 +160,25 @@ final darkTheme = ThemeData(
     fillColor: MaterialStateProperty.resolveWith<Color>(
       (Set<MaterialState> states) {
         if (states.contains(MaterialState.selected)) {
-          return Colors.orangeAccent;
+          return Colors.indigo;
         }
         return Colors.grey;
       },
     ),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    selectedItemColor: Colors.orangeAccent,
+    selectedItemColor: Colors.indigo,
+  ),
+  floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    backgroundColor: Colors.indigo,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: TextButton.styleFrom(
+      backgroundColor: Colors.indigo,
+      primary: Colors.white,
+    ),
+  ),
+  snackBarTheme: const SnackBarThemeData(
+    actionTextColor: Colors.black,
   ),
 );

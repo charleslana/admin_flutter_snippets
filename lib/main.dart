@@ -1,4 +1,5 @@
 import 'package:admin_flutter_snippets/src/l10n/l10n.dart';
+import 'package:admin_flutter_snippets/src/pages/edit_news_page.dart';
 import 'package:admin_flutter_snippets/src/pages/home_page.dart';
 import 'package:admin_flutter_snippets/src/pages/settings_page.dart';
 import 'package:admin_flutter_snippets/src/providers/locale_provider.dart';
@@ -50,11 +51,9 @@ class MyAppMaterial extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String title = 'Admin News FS';
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: title,
+      title: 'Admin News FS',
       themeMode: Provider.of<ThemeProvider>(context).themeMode,
       theme: lighTheme,
       darkTheme: darkTheme,
@@ -71,7 +70,7 @@ class MyAppMaterial extends StatelessWidget {
         switch (settings.name) {
           case Routes.home:
             return RouteTransitionWidget(
-              widget: const HomePage(title: title),
+              widget: const HomePage(),
               settings: settings,
             );
           case Routes.settings:
@@ -79,9 +78,14 @@ class MyAppMaterial extends StatelessWidget {
               widget: const SettingsPage(),
               settings: settings,
             );
+          case Routes.editNews:
+            return RouteTransitionWidget(
+              widget: const EditNewsPage(),
+              settings: settings,
+            );
           default:
             return RouteTransitionWidget(
-              widget: const HomePage(title: title),
+              widget: const HomePage(),
               settings: settings,
             );
         }

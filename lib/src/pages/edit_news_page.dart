@@ -2,22 +2,24 @@ import 'package:admin_flutter_snippets/src/models/news.dart';
 import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
 import 'package:admin_flutter_snippets/src/widgets/news_form_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class EditNewsPage extends StatefulWidget {
-  const EditNewsPage({required this.news, Key? key}) : super(key: key);
-
-  final News news;
+  const EditNewsPage({Key? key}) : super(key: key);
 
   @override
   _EditNewsPageState createState() => _EditNewsPageState();
 }
 
 class _EditNewsPageState extends State<EditNewsPage> {
+  late final News _news = ModalRoute.of(context)!.settings.arguments as News;
   final _key = GlobalKey<FormState>();
 
-  late String _title;
-  late String _description;
+  String _title = '';
+  String _description = '';
+  DateTime _createdTime = DateTime.now();
 
   void _saveNews() {
     final isValid = _key.currentState!.validate();
@@ -25,51 +27,68 @@ class _EditNewsPageState extends State<EditNewsPage> {
     if (!isValid) {
       return;
     }
+
     Provider.of<NewsProvider>(context, listen: false)
-        .updateNews(widget.news, _title, _description);
+        .updateNews(_news, _title, _description);
 
     Navigator.of(context).pop();
   }
 
-  @override
-  void initState() {
-    super.initState();
-
-    _title = widget.news.title!;
-    _description = widget.news.description!;
+  Future<void> init() async {
+    await Future<void>.delayed(Duration.zero).then((_) {
+      setState(() {
+        _title = _news.title!;
+        _description = _news.description!;
+        _createdTime = _news.createdTime!;
+      });
+    });
   }
 
   @override
-  Widget build(BuildContext context) => SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Edit News'),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.delete),
-                onPressed: () {
-                  Provider.of<NewsProvider>(context, listen: false)
-                      .removeNews(widget.news);
+  void initState() {
+    init();
+    super.initState();
+  }
 
-                  Navigator.of(context).pop();
-                },
-              )
-            ],
-          ),
-          body: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Form(
-              key: _key,
-              child: NewsFormWidget(
-                title: _title,
-                description: _description,
-                onChangedTitle: (title) => setState(() => _title = title),
-                onChangedDescription: (description) =>
-                    setState(() => _description = description),
-                onSavedNews: _saveNews,
-              ),
-            ),
+  @override
+  Widget build(BuildContext context) {
+    final DateFormat _dateFormat =
+        DateFormat(AppLocalizations.of(context)!.dateFormat);
+    final String formattedDate = _dateFormat.format(_createdTime);
+
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(formattedDate),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () {
+                Provider.of<NewsProvider>(context, listen: false)
+                    .removeNews(_news);
+
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Form(
+            key: _key,
+            child: _title.isEmpty
+                ? const Center(child: CircularProgressIndicator())
+                : NewsFormWidget(
+                    title: _title,
+                    description: _description,
+                    onChangedTitle: (title) => setState(() => _title = title),
+                    onChangedDescription: (description) =>
+                        setState(() => _description = description),
+                    onSavedNews: _saveNews,
+                  ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }

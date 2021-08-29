@@ -1,8 +1,5 @@
 {
-    "appBarHome": "Casa",
     "appBarSettings": "Ajustes",
-    "bottomNavigationBarHomeUnits": "Unidades",
-    "bottomNavigationBarHomeTeam": "Equipo",
     "pageSettingsTheme": "Tema",
     "pageSettingsDefaultTheme": "Tema predeterminado definido por el sistema",
     "pageSettingsDarkMode": "Modo oscuro",
@@ -11,5 +8,23 @@
     "pageSettingsLanguageEnglish": "Inglés",
     "pageSettingsLanguageSpanish": "Español",
     "pageSettingsLanguagePortuguese": "Portugués",
-    "dateFormat": "dd/MM/yyyy"
+    "dateFormat": "dd/MM/yyyy",
+    "appBarHome": "Noticias",
+    "pageHomeActive": "Activa",
+    "pageHomeDisabled": "Discapacitada",
+    "pageHomeNewsError": "Algo salió mal Inténtelo más tarde",
+    "closeSnackBar": "Cerrar",
+    "dialogAddNews": "Agregar noticias",
+    "noDisabledNews": "No hay noticias para discapacitados",
+    "formTitle": "Título",
+    "formTitleIsEmpty": "El título no puede estar vacío",
+    "formDescription": "Descripción",
+    "formDescriptionIsEmpty": "La descripción no puede estar vacía",
+    "formSave": "Ahorrar",
+    "noNews": "No hay noticias",
+    "snackBarDeletedNews": "Noticia eliminada",
+    "newsEdit": "Editar",
+    "newsDelete": "Borrar",
+    "snackBarNewsDisabled": "Noticia deshabilitada",
+    "snackBarNewsEnabled": "Noticia habilitada"
 }

@@ -2,6 +2,7 @@ import 'package:admin_flutter_snippets/src/models/news.dart';
 import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
 import 'package:admin_flutter_snippets/src/widgets/news_form_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class AddNewsDialogWidget extends StatefulWidget {
@@ -44,9 +45,9 @@ class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Add News',
-              style: TextStyle(
+            Text(
+              AppLocalizations.of(context)!.dialogAddNews,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
               ),

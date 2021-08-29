@@ -1,6 +1,7 @@
 import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
 import 'package:admin_flutter_snippets/src/widgets/news_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class DisabledListWidget extends StatelessWidget {
@@ -11,10 +12,10 @@ class DisabledListWidget extends StatelessWidget {
     final news = Provider.of<NewsProvider>(context).newsDisabled;
 
     return news.isEmpty
-        ? const Center(
+        ? Center(
             child: Text(
-              'No disabled news.',
-              style: TextStyle(fontSize: 20),
+              AppLocalizations.of(context)!.noDisabledNews,
+              style: const TextStyle(fontSize: 20),
             ),
           )
         : ListView.separated(

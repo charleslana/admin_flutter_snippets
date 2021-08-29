@@ -1,8 +1,5 @@
 {
-    "appBarHome": "Casa",
     "appBarSettings": "Configurações",
-    "bottomNavigationBarHomeUnits": "Unidades",
-    "bottomNavigationBarHomeTeam": "Equipe",
     "pageSettingsTheme": "Tema",
     "pageSettingsDefaultTheme": "Tema padrão definido pelo sistema",
     "pageSettingsDarkMode": "Modo escuro",
@@ -11,5 +8,23 @@
     "pageSettingsLanguageEnglish": "Inglês",
     "pageSettingsLanguageSpanish": "Espanhol",
     "pageSettingsLanguagePortuguese": "Português",
-    "dateFormat": "dd/MM/yyyy"
+    "dateFormat": "dd/MM/yyyy",
+    "appBarHome": "Notícias",
+    "pageHomeActive": "Ativa",
+    "pageHomeDisabled": "Desabilitada",
+    "pageHomeNewsError": "Algo deu errado, tente mais tarde",
+    "closeSnackBar": "Fechar",
+    "dialogAddNews": "Adicionar notícias",
+    "noDisabledNews": "Não há notícias desativadas",
+    "formTitle": "Título",
+    "formTitleIsEmpty": "O título não pode estar vazio",
+    "formDescription": "Descrição",
+    "formDescriptionIsEmpty": "A descrição não pode estar vazia",
+    "formSave": "Salvar",
+    "noNews": "Não há notícias",
+    "snackBarDeletedNews": "Notícia excluída",
+    "newsEdit": "Editar",
+    "newsDelete": "Excluir",
+    "snackBarNewsDisabled": "Notícia desativada",
+    "snackBarNewsEnabled": "Notícia habilitada"
 }

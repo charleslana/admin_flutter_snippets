@@ -6,6 +6,7 @@ import 'package:admin_flutter_snippets/src/widgets/app_bar_widget.dart';
 import 'package:admin_flutter_snippets/src/widgets/disabled_list_widget.dart';
 import 'package:admin_flutter_snippets/src/widgets/news_list_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,22 +28,22 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        appBar: const AppBarWidget(
-          title: 'News',
+        appBar: AppBarWidget(
+          title: AppLocalizations.of(context)!.appBarHome,
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: (index) => setState(() {
             _selectedIndex = index;
           }),
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.fact_check_outlined),
-              label: 'Active',
+              icon: const Icon(Icons.fact_check_outlined),
+              label: AppLocalizations.of(context)!.pageHomeActive,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.done, size: 28),
-              label: 'Disabled',
+              icon: const Icon(Icons.done, size: 28),
+              label: AppLocalizations.of(context)!.pageHomeDisabled,
             ),
           ],
         ),
@@ -54,10 +55,10 @@ class _HomePageState extends State<HomePage> {
                 return const Center(child: CircularProgressIndicator());
               default:
                 if (snapshot.hasError) {
-                  return const Center(
+                  return Center(
                     child: Text(
-                      'Something Went Wrong Try later',
-                      style: TextStyle(
+                      AppLocalizations.of(context)!.pageHomeNewsError,
+                      style: const TextStyle(
                         fontSize: 24,
                       ),
                     ),

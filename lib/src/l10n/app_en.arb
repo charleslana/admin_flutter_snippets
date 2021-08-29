@@ -1,8 +1,5 @@
 {
-    "appBarHome": "Home",
     "appBarSettings": "Settings",
-    "bottomNavigationBarHomeUnits": "Units",
-    "bottomNavigationBarHomeTeam": "Team",
     "pageSettingsTheme": "Theme",
     "pageSettingsDefaultTheme": "System defined default theme",
     "pageSettingsDarkMode": "Dark mode",
@@ -11,5 +8,23 @@
     "pageSettingsLanguageEnglish": "English",
     "pageSettingsLanguageSpanish": "Spanish",
     "pageSettingsLanguagePortuguese": "Portuguese",
-    "dateFormat": "MM/dd/yyyy"
+    "dateFormat": "MM/dd/yyyy",
+    "appBarHome": "News",
+    "pageHomeActive": "Active",
+    "pageHomeDisabled": "Disabled",
+    "pageHomeNewsError": "Something Went Wrong Try later",
+    "closeSnackBar": "Close",
+    "dialogAddNews": "Add news",
+    "noDisabledNews": "No disabled news",
+    "formTitle": "Title",
+    "formTitleIsEmpty": "The title cannot be empty",
+    "formDescription": "Description",
+    "formDescriptionIsEmpty": "The description cannot be empty",
+    "formSave": "Save",
+    "noNews": "No news",
+    "snackBarDeletedNews": "Deleted news",
+    "newsEdit": "Edit",
+    "newsDelete": "Delete",
+    "snackBarNewsDisabled": "News disabled",
+    "snackBarNewsEnabled": "News enabled"
 }

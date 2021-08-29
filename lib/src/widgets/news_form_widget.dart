@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsFormWidget extends StatelessWidget {
   const NewsFormWidget({
@@ -18,54 +19,57 @@ class NewsFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
+        physics: const BouncingScrollPhysics(
+          parent: AlwaysScrollableScrollPhysics(),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            buildTitle(),
+            buildTitle(context),
             const SizedBox(height: 8),
-            buildDescription(),
+            buildDescription(context),
             const SizedBox(height: 16),
-            buildButton(),
+            buildButton(context),
           ],
         ),
       );
 
-  Widget buildTitle() => TextFormField(
+  Widget buildTitle(BuildContext context) => TextFormField(
         initialValue: title,
         onChanged: onChangedTitle,
         validator: (title) {
           if (title!.trim().isEmpty) {
-            return 'The title cannot be empty';
+            return AppLocalizations.of(context)!.formTitleIsEmpty;
           }
           return null;
         },
-        decoration: const InputDecoration(
-          border: UnderlineInputBorder(),
-          labelText: 'Title',
+        decoration: InputDecoration(
+          border: const UnderlineInputBorder(),
+          labelText: AppLocalizations.of(context)!.formTitle,
         ),
       );
 
-  Widget buildDescription() => TextFormField(
+  Widget buildDescription(BuildContext context) => TextFormField(
         maxLines: 5,
         initialValue: description,
         onChanged: onChangedDescription,
         validator: (description) {
           if (description!.trim().isEmpty) {
-            return 'The description cannot be empty';
+            return AppLocalizations.of(context)!.formDescriptionIsEmpty;
           }
           return null;
         },
-        decoration: const InputDecoration(
-          border: UnderlineInputBorder(),
-          labelText: 'Description',
+        decoration: InputDecoration(
+          border: const UnderlineInputBorder(),
+          labelText: AppLocalizations.of(context)!.formDescription,
         ),
       );
 
-  Widget buildButton() => SizedBox(
+  Widget buildButton(BuildContext context) => SizedBox(
         width: double.infinity,
         child: ElevatedButton(
           onPressed: onSavedNews,
-          child: const Text('Save'),
+          child: Text(AppLocalizations.of(context)!.formSave),
         ),
       );
 }

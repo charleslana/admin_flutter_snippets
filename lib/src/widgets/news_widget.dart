@@ -19,7 +19,8 @@ class NewsWidget extends StatelessWidget {
   void deleteNews(BuildContext context, News news) {
     Provider.of<NewsProvider>(context, listen: false).removeNews(news);
 
-    Utils.showSnackBar(context, 'Deleted the news');
+    Utils.showSnackBar(
+        context, AppLocalizations.of(context)!.snackBarDeletedNews);
   }
 
   void editNews(BuildContext context, News news) =>
@@ -43,14 +44,14 @@ class NewsWidget extends StatelessWidget {
           IconSlideAction(
             color: Colors.green,
             onTap: () => editNews(context, news),
-            caption: 'Edit',
+            caption: AppLocalizations.of(context)!.newsEdit,
             icon: Icons.edit,
           )
         ],
         secondaryActions: [
           IconSlideAction(
             color: Colors.red,
-            caption: 'Delete',
+            caption: AppLocalizations.of(context)!.newsDelete,
             onTap: () => deleteNews(context, news),
             icon: Icons.delete,
           )
@@ -70,7 +71,9 @@ class NewsWidget extends StatelessWidget {
 
                     Utils.showSnackBar(
                       context,
-                      isDisabled! ? 'News disabled' : 'News enabled',
+                      isDisabled!
+                          ? AppLocalizations.of(context)!.snackBarNewsDisabled
+                          : AppLocalizations.of(context)!.snackBarNewsEnabled,
                     );
                   },
                 ),

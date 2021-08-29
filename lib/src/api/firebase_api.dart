@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:admin_flutter_snippets/src/model/news.dart';
+import 'package:admin_flutter_snippets/src/models/news.dart';
 import 'package:admin_flutter_snippets/src/utils/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -20,7 +20,7 @@ class FirebaseApi {
       .collection(_news)
       .orderBy(NewsField.createdTime, descending: true)
       .snapshots()
-      .transform(Utils.transformer(News.fromJson) as StreamTransformer<
+      .transform(Utils.transformer(News().fromJson) as StreamTransformer<
           QuerySnapshot<Map<String, dynamic>>, List<News>>);
 
   static Future<void> updateNews(News news) async {

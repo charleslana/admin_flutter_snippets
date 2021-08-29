@@ -1,9 +1,9 @@
 import 'package:admin_flutter_snippets/src/api/firebase_api.dart';
-import 'package:admin_flutter_snippets/src/model/news.dart';
-import 'package:admin_flutter_snippets/src/provider/news_provider.dart';
-import 'package:admin_flutter_snippets/src/widget/add_news_dialog_widget.dart';
-import 'package:admin_flutter_snippets/src/widget/disabled_list_widget.dart';
-import 'package:admin_flutter_snippets/src/widget/news_list_widget.dart';
+import 'package:admin_flutter_snippets/src/models/news.dart';
+import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
+import 'package:admin_flutter_snippets/src/widgets/add_news_dialog_widget.dart';
+import 'package:admin_flutter_snippets/src/widgets/disabled_list_widget.dart';
+import 'package:admin_flutter_snippets/src/widgets/news_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.fact_check_outlined),
-              label: 'News',
+              label: 'Active',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.done, size: 28),

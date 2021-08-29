@@ -7,19 +7,19 @@ class NewsField {
 class News {
   News({
     this.id,
-    required this.title,
-    required this.description,
+    this.title,
+    this.description,
     this.isDisabled = false,
     this.createdTime,
   });
 
   String? id;
-  String title;
-  String description;
+  String? title;
+  String? description;
   bool? isDisabled;
   DateTime? createdTime;
 
-  static News fromJson(Map<String, dynamic> json) => News(
+  News fromJson(Map<String, dynamic> json) => News(
         id: json['id'],
         title: json['title'],
         description: json['description'],

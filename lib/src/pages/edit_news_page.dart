@@ -1,6 +1,6 @@
-import 'package:admin_flutter_snippets/src/model/news.dart';
-import 'package:admin_flutter_snippets/src/provider/news_provider.dart';
-import 'package:admin_flutter_snippets/src/widget/news_form_widget.dart';
+import 'package:admin_flutter_snippets/src/models/news.dart';
+import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
+import 'package:admin_flutter_snippets/src/widgets/news_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,8 +35,8 @@ class _EditNewsPageState extends State<EditNewsPage> {
   void initState() {
     super.initState();
 
-    _title = widget.news.title;
-    _description = widget.news.description;
+    _title = widget.news.title!;
+    _description = widget.news.description!;
   }
 
   @override

@@ -1,0 +1,14 @@
+{
+    "appBarHome": "Home",
+    "appBarSettings": "Settings",
+    "bottomNavigationBarHomeUnits": "Units",
+    "bottomNavigationBarHomeTeam": "Team",
+    "pageSettingsTheme": "Theme",
+    "pageSettingsDefaultTheme": "System defined default theme",
+    "pageSettingsDarkMode": "Dark mode",
+    "pageSettingsLanguage": "Language",
+    "pageSettingsDefaultLanguage": "System defined default language",
+    "pageSettingsLanguageEnglish": "English",
+    "pageSettingsLanguageSpanish": "Spanish",
+    "pageSettingsLanguagePortuguese": "Portuguese"
+}

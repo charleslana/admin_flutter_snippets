@@ -1,5 +1,5 @@
-import 'package:admin_flutter_snippets/src/provider/news_provider.dart';
-import 'package:admin_flutter_snippets/src/widget/news_widget.dart';
+import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
+import 'package:admin_flutter_snippets/src/widgets/news_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

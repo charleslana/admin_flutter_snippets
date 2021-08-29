@@ -4,18 +4,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Utils {
-  static DateTime toDateTime(Timestamp? value) {
-    if (value == null) {
+  static DateTime toDateTime(Timestamp? timestamp) {
+    if (timestamp == null) {
       return DateTime.now();
     }
-    return value.toDate();
+    return timestamp.toDate();
   }
 
-  static dynamic fromDateTimeToJson(DateTime? date) {
-    if (date == null) {
+  static dynamic fromDateTimeToJson(DateTime? dateTime) {
+    if (dateTime == null) {
       return null;
     }
-    return date.toUtc();
+    return dateTime.toUtc();
   }
 
   static void showSnackBar(BuildContext context, String text) {

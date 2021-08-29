@@ -1,5 +1,5 @@
 import 'package:admin_flutter_snippets/src/api/firebase_api.dart';
-import 'package:admin_flutter_snippets/src/model/news.dart';
+import 'package:admin_flutter_snippets/src/models/news.dart';
 import 'package:flutter/material.dart';
 
 class NewsProvider extends ChangeNotifier {

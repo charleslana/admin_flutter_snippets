@@ -76,7 +76,7 @@ class _EditNewsPageState extends State<EditNewsPage> {
           padding: const EdgeInsets.all(16),
           child: Form(
             key: _key,
-            child: _title.isEmpty
+            child: _createdTime == DateTime.now()
                 ? const Center(child: CircularProgressIndicator())
                 : NewsFormWidget(
                     title: _title,

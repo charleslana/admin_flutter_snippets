@@ -22,6 +22,8 @@
     "formDescriptionIsEmpty": "The description cannot be empty",
     "formSave": "Save",
     "noNews": "No news",
+    "showMore": "Show more",
+    "showLess": "Show less",
     "snackBarDeletedNews": "Deleted news",
     "newsEdit": "Edit",
     "newsDelete": "Delete",

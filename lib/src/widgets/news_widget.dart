@@ -7,6 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:readmore/readmore.dart';
 
 class NewsWidget extends StatelessWidget {
   const NewsWidget({
@@ -91,12 +92,26 @@ class NewsWidget extends StatelessWidget {
                       ),
                       Container(
                         margin: const EdgeInsets.only(top: 4),
-                        child: Text(
+                        child: ReadMoreText(
                           news.description!,
-                          style: const TextStyle(
+                          trimLines: 5,
+                          delimiter: '',
+                          colorClickableText: Colors.indigo,
+                          trimMode: TrimMode.Line,
+                          trimCollapsedText:
+                              '...${AppLocalizations.of(context)!.showMore}',
+                          trimExpandedText:
+                              ' ${AppLocalizations.of(context)!.showLess}',
+                          moreStyle: const TextStyle(
                             fontSize: 20,
                             height: 1.5,
+                            fontWeight: FontWeight.bold,
                           ),
+                          style:
+                              Theme.of(context).textTheme.subtitle1!.copyWith(
+                                    fontSize: 20,
+                                    height: 1.5,
+                                  ),
                         ),
                       ),
                       Container(

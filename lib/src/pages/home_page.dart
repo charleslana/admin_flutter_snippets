@@ -3,7 +3,7 @@ import 'package:admin_flutter_snippets/src/models/news.dart';
 import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
 import 'package:admin_flutter_snippets/src/widgets/add_news_dialog_widget.dart';
 import 'package:admin_flutter_snippets/src/widgets/app_bar_widget.dart';
-import 'package:admin_flutter_snippets/src/widgets/disabled_list_widget.dart';
+import 'package:admin_flutter_snippets/src/widgets/disabled_news_list_widget.dart';
 import 'package:admin_flutter_snippets/src/widgets/news_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final tabs = [
       const NewsListWidget(),
-      const DisabledListWidget(),
+      const DisabledNewsListWidget(),
     ];
 
     return SafeArea(

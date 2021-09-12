@@ -22,6 +22,8 @@
     "formDescriptionIsEmpty": "La descripción no puede estar vacía",
     "formSave": "Ahorrar",
     "noNews": "No hay noticias",
+    "showMore": "Mostrar más",
+    "showLess": "Muestra menos",
     "snackBarDeletedNews": "Noticia eliminada",
     "newsEdit": "Editar",
     "newsDelete": "Borrar",

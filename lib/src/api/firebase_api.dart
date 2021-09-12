@@ -7,7 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class FirebaseApi {
   static const _news = 'news';
 
-  static Future<String> createNews(News news) async {
+  Future<String> createNews(News news) async {
     final docNews = FirebaseFirestore.instance.collection(_news).doc();
     news.id = docNews.id;
 

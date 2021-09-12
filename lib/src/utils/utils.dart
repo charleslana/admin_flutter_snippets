@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Utils {
-  static DateTime toDateTime(Timestamp? timestamp) {
+  DateTime toDateTime(Timestamp? timestamp) {
     if (timestamp == null) {
       return DateTime.now();
     }

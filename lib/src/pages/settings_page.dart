@@ -47,7 +47,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     setState(() {
       _isDefaultLanguage = true;
-      _language = L10n.getLanguage(localeProvider.languageCode);
+      _language = L10n().getLanguage(localeProvider.languageCode);
     });
   }
 
@@ -71,7 +71,7 @@ class _SettingsPageState extends State<SettingsPage> {
       _isDefaultTheme = themeProvider.isDefaultTheme;
       _isDarkMode = themeProvider.isDarkMode;
       _isDefaultLanguage = localeProvider.isDefaultLanguage;
-      _language = L10n.getLanguage(localeProvider.locale.languageCode);
+      _language = L10n().getLanguage(localeProvider.locale.languageCode);
     });
     super.initState();
   }

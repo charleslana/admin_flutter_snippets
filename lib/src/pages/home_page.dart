@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => showDialog(
+          onPressed: () => showDialog<dynamic>(
             context: context,
             builder: (context) => const AddNewsDialogWidget(),
           ),

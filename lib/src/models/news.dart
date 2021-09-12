@@ -24,7 +24,7 @@ class News {
         title: json['title'],
         description: json['description'],
         isDisabled: json['isDisabled'],
-        createdTime: Utils.toDateTime(json['createdTime']),
+        createdTime: Utils().toDateTime(json['createdTime']),
       );
 
   Map<String, dynamic> toJson() => {

@@ -17,7 +17,7 @@ class NewsProvider extends ChangeNotifier {
         notifyListeners();
       });
 
-  void addNews(News news) => FirebaseApi.createNews(news);
+  void addNews(News news) => FirebaseApi().createNews(news);
 
   void updateNews(News news, String title, String description) {
     news

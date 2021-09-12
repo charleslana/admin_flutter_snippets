@@ -5,7 +5,7 @@ import 'package:admin_flutter_snippets/src/utils/utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FirebaseApi {
-  static const _news = 'news';
+  static const String _news = 'news';
 
   Future<String> createNews(News news) async {
     final docNews = FirebaseFirestore.instance.collection(_news).doc();

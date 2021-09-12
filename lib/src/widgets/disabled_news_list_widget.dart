@@ -1,3 +1,4 @@
+import 'package:admin_flutter_snippets/src/models/news.dart';
 import 'package:admin_flutter_snippets/src/providers/news_provider.dart';
 import 'package:admin_flutter_snippets/src/widgets/news_widget.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class DisabledNewsListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final news = Provider.of<NewsProvider>(context).newsDisabled;
+    final List<News> news = Provider.of<NewsProvider>(context).newsDisabled;
 
     return news.isEmpty
         ? Center(
@@ -24,7 +25,7 @@ class DisabledNewsListWidget extends StatelessWidget {
             separatorBuilder: (context, index) => Container(height: 8),
             itemCount: news.length,
             itemBuilder: (context, index) {
-              final newsWidget = news[index];
+              final News newsWidget = news[index];
 
               return NewsWidget(news: newsWidget);
             },

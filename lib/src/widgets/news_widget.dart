@@ -17,14 +17,14 @@ class NewsWidget extends StatelessWidget {
 
   final News news;
 
-  void deleteNews(BuildContext context, News news) {
+  void _deleteNews(BuildContext context, News news) {
     Provider.of<NewsProvider>(context, listen: false).removeNews(news);
 
     Utils.showSnackBar(
         context, AppLocalizations.of(context)!.snackBarDeletedNews);
   }
 
-  void editNews(BuildContext context, News news) =>
+  void _editNews(BuildContext context, News news) =>
       Navigator.of(context).pushNamed(
         Routes.editNews,
         arguments: news,
@@ -44,7 +44,7 @@ class NewsWidget extends StatelessWidget {
         actions: [
           IconSlideAction(
             color: Colors.green,
-            onTap: () => editNews(context, news),
+            onTap: () => _editNews(context, news),
             caption: AppLocalizations.of(context)!.newsEdit,
             icon: Icons.edit,
           )
@@ -53,12 +53,12 @@ class NewsWidget extends StatelessWidget {
           IconSlideAction(
             color: Colors.red,
             caption: AppLocalizations.of(context)!.newsDelete,
-            onTap: () => deleteNews(context, news),
+            onTap: () => _deleteNews(context, news),
             icon: Icons.delete,
           )
         ],
         child: GestureDetector(
-          onTap: () => editNews(context, news),
+          onTap: () => _editNews(context, news),
           child: Container(
             padding: const EdgeInsets.all(20),
             child: Row(
@@ -66,7 +66,7 @@ class NewsWidget extends StatelessWidget {
                 Checkbox(
                   value: news.isDisabled,
                   onChanged: (_) {
-                    final isDisabled =
+                    final bool? isDisabled =
                         Provider.of<NewsProvider>(context, listen: false)
                             .toggleNewsStatus(news);
 

@@ -1,7 +1,7 @@
 import 'package:admin_flutter_snippets/src/utils/utils.dart';
 
 class NewsField {
-  static const createdTime = 'createdTime';
+  static const String createdTime = 'createdTime';
 }
 
 class News {

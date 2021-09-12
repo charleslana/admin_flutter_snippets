@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final tabs = [
+    final List<Widget> tabs = [
       const NewsListWidget(),
       const DisabledNewsListWidget(),
     ];

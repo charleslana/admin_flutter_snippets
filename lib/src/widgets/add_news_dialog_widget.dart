@@ -13,12 +13,12 @@ class AddNewsDialogWidget extends StatefulWidget {
 }
 
 class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
-  final _key = GlobalKey<FormState>();
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   String _title = '';
   String _description = '';
 
-  void addNews() {
-    final isValid = _key.currentState!.validate();
+  void _addNews() {
+    final bool isValid = _key.currentState!.validate();
 
     if (!isValid) {
       return;
@@ -58,7 +58,7 @@ class _AddNewsDialogWidgetState extends State<AddNewsDialogWidget> {
                 onChangedTitle: (title) => setState(() => _title = title),
                 onChangedDescription: (description) =>
                     setState(() => _description = description),
-                onSavedNews: addNews,
+                onSavedNews: _addNews,
               ),
             ),
           ],

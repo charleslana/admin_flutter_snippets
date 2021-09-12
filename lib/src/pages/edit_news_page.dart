@@ -15,8 +15,8 @@ class EditNewsPage extends StatefulWidget {
 
 class _EditNewsPageState extends State<EditNewsPage> {
   late final News _news = ModalRoute.of(context)!.settings.arguments as News;
-  final _key = GlobalKey<FormState>();
-
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  bool _isLoading = true;
   String _title = '';
   String _description = '';
   DateTime _createdTime = DateTime.now();
@@ -40,6 +40,7 @@ class _EditNewsPageState extends State<EditNewsPage> {
         _title = _news.title!;
         _description = _news.description!;
         _createdTime = _news.createdTime!;
+        _isLoading = false;
       });
     });
   }
@@ -76,7 +77,7 @@ class _EditNewsPageState extends State<EditNewsPage> {
           padding: const EdgeInsets.all(16),
           child: Form(
             key: _key,
-            child: _createdTime == DateTime.now()
+            child: _isLoading
                 ? const Center(child: CircularProgressIndicator())
                 : NewsFormWidget(
                     title: _title,

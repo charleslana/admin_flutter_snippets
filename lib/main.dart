@@ -11,6 +11,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,13 +20,22 @@ Future<void> main() async {
   final SharedPreferences sharedPreferences =
       await SharedPreferences.getInstance();
   await Firebase.initializeApp();
-  runApp(MyApp(sharedPreferences: sharedPreferences));
+  final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  runApp(MyApp(
+    sharedPreferences: sharedPreferences,
+    packageInfo: packageInfo,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({this.sharedPreferences, Key? key}) : super(key: key);
+  const MyApp({
+    this.sharedPreferences,
+    this.packageInfo,
+    Key? key,
+  }) : super(key: key);
 
   final SharedPreferences? sharedPreferences;
+  final PackageInfo? packageInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +51,24 @@ class MyApp extends StatelessWidget {
           create: (_) => NewsProvider(),
         ),
       ],
-      child: const MyAppMaterial(),
+      child: MyAppMaterial(appName: packageInfo!.appName),
     );
   }
 }
 
 class MyAppMaterial extends StatelessWidget {
-  const MyAppMaterial({Key? key}) : super(key: key);
+  const MyAppMaterial({
+    required this.appName,
+    Key? key,
+  }) : super(key: key);
+
+  final String appName;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Admin News FS',
+      title: appName,
       themeMode: Provider.of<ThemeProvider>(context).themeMode,
       theme: lighTheme,
       darkTheme: darkTheme,

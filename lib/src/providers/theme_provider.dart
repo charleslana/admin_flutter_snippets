@@ -127,6 +127,7 @@ final lighTheme = ThemeData(
   snackBarTheme: const SnackBarThemeData(
     actionTextColor: Colors.white,
   ),
+  fontFamily: 'OpenSans',
 );
 
 final darkTheme = ThemeData(
@@ -181,4 +182,5 @@ final darkTheme = ThemeData(
   snackBarTheme: const SnackBarThemeData(
     actionTextColor: Colors.black,
   ),
+  fontFamily: 'OpenSans',
 );
